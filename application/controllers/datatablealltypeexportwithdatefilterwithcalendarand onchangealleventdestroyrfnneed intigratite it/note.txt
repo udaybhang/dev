@@ -1,0 +1,2 @@
+open controller=>admindashboard.php
+view=>subscriber2.php

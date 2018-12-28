@@ -1,0 +1,108 @@
+.wap{
+  		margin: 100px auto;
+
+  	}
+   
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+#accordion .panel{
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    box-shadow: none;
+}
+#accordion .panel-heading{
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    position: relative;
+    border:1px solid green;
+}
+#accordion .panel-title a{
+    display: block;
+    padding: 10px 10px;
+    margin: 0;
+    /*background: #e65e36;*/
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    /*color: #f9e2ad;*/
+    color: #4b456d;
+    /*text-transform: uppercase;*/
+    letter-spacing: 1px;
+    position: relative;
+}
+#accordion .panel-title{
+	/*border:1px solid green;*/
+}
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before{
+    content: "";
+    width: 20px;
+    height: 2px;
+    /*background: #f9e2ad;*/
+    background: #333333;
+
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+#accordion .panel-title a:after,
+#accordion .panel-title a.collapsed:after{
+    content: "";
+    width: 2px;
+    height: 20px;
+    /*background: #f9e2ad;*/
+    background: #333333;
+
+    position: absolute;
+    bottom: 10px;
+    right: 39px;
+    transition: all 0.3s ease 0s;
+}
+#accordion .panel-title a:after{ height: 0; }
+#accordion .panel-body{
+    padding: 0px 0px;
+    /*background: #56522b;*/
+    background: #ffffff;
+    
+    border-top: 2px solid #000;
+    font-size: 15px;
+    color: lightgray;
+    /*line-height: 28px;*/
+    /*letter-spacing: 1px;*/
+}
+#accordion .panel-body .col-md-1{
+    border:1px solid lightgray; padding: 8PX; color: black;
+}
+#accordion .panel-body .col-md-11{border:1px solid lightgray; padding: 8PX; color: black;}
+.scroll-y {
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height: 400px;
+}	
+.scroll-x {
+    overflow-y:scroll;
+    overflow-x:hidden;
+    height: 400px;
+}	
+.t{
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    display: block;
+}
+button{
+	margin: 5px;
+	margin-top: 20px;
+	padding: 5px;
+    background-color: #0F2A51;
+    color: white;
+    font-size: 12px;
+   border-radius: 3px;
+   border:1px solid lightgray;
+}
+JavaScript (Accordion depend on jQuery and Bootstrap.)

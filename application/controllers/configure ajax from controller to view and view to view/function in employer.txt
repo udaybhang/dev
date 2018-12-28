@@ -1,0 +1,278 @@
+ public function employer_my_jobs1_page()
+    {
+                $this->load->view('employertempletes/head');
+                $this->load->view('employertempletes/header');
+                $this->load->view('emp-my-jobs1');
+                $this->load->view('employertempletes/footer');
+                $this->load->view('employertempletes/sidebar');
+    }
+    public function   employer_my_jobs1()  {
+       
+         $uid=$this->session->userdata('employer_id');
+          $status = $this->input->post('job_status');
+         $where="`employer_id`='$uid'";
+         $empdat=$this->Crud_modal->fetch_single_data('employer_industry_id','mm_employer',$where);
+
+          $inid = $empdat['employer_industry_id']; 
+           $where="industry_id=$inid"; 
+            $data["functional_area"]=$this->Crud_modal->all_data_select('*','mm_master_industry_functional',$where,'functional_id asc'); 
+         if($this->input->post('job_status')!=''){
+            // $status = $this->input->post('job_status');
+                      
+                       if($status=='All'){
+                          $message = 'Job Posted';
+                          $data["filter_status"]='All';
+                         $jobs1= $this->Employer_model->get_jobs($uid); 
+                        }
+                     else
+                     {
+                        $data["filter_status"]=$this->input->post('job_status');
+                                             if($data["filter_status"]==0){
+                                                 $message = 'Pending Jobs';                          
+                                             }elseif($data["message"]==1){
+                                                 $message = 'Published Jobs';   
+                                             }elseif($data["filter_status"]==2){
+                                                 $message = 'Rejected Jobs';                     
+                                             }elseif($data["filter_status"]==3){
+                                                 $message = 'Unpublished Jobs';                      
+                                             }
+                                              $jobs1= $this->Employer_model->get_jobs1($uid,$status); 
+}
+                 }
+                      else{
+                        $status='1';
+                      $filter_status='1';
+                     $message = 'Published Jobs';
+                     $jobs1= $this->Employer_model->get_jobs1($uid,$status);
+                   
+                }
+                $tbldata='';
+               
+                 foreach ($jobs1 as $value)
+                 {
+                    $id=$value['job_id'];
+                    $encoded_jid=rtrim(strtr(base64_encode($id), '+/', '-_'), '=');  
+                     $tbldata.='<tr class="footable-even" style="">
+                              <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>';
+                       $tbldata.= ''.date("d/m/Y g:i A", strtotime($value['job_created_date']));
+                       $tbldata.='</td>';
+                        $tbldata.='<td class="footable-visible">';
+                         $tbldata.=''.$value['job_title'];
+                         $pk=$value['package_id'];  $pksk=$value['package_skills_id']; $mm_neu=$value['required_system_neurons'];
+                                       if($mm_neu==0 && $pk=='' && $pksk==''){
+                                       $tbldata.='<br/><div style="margin-top: 2%"><span class="label label-danger">Unmapped</span>  </div>';
+                                   
+                                       } 
+                                       else{ 
+                                
+                                      $tbldata.='<br><div style="margin-top: 2%"><span class="label label-warning">Mapped';
+                                 
+                                       if($mm_neu>0 && $pk=='' && $pksk=='') 
+                                        $tbldata.=' By- MM Neurons';
+                                        
+                                       if($mm_neu==0 && $pk!='' && $pksk=='')
+                                        $tbldata.=' By- Package Neurons';
+                                       if($mm_neu>0 && $pk!='' && $pksk!='') 
+                                      
+                                     $tbldata.=' By- MM Neurons, Package Neurons, Skills';
+                                       if($mm_neu>0 && $pk!='' && $pksk=='') 
+                                    
+                                      $tbldata.=' By- MM Neurons, Package Neurons';
+                                       if($mm_neu==0 && $pk!='' && $pksk!='') 
+                                      
+                                    $tbldata.=' By- Package Neurons, Skills';
+                                
+                                      $tbldata.='</span>  </div>';
+                                  
+                                       }
+                                       $tbldata.='</td>' ;
+                                       $tbldata.='<td class="footable-visible">';
+                                 $tbldata.=''.$value['required_system_neurons'];
+                              $tbldata.='</td>';
+                              $tbldata.='<td class="footable-visible">';
+                                 $tbldata.=''.$value['ctc_from']."-".$value['ctc_to'];
+                              $tbldata.='</td>';
+                              $tbldata.='<td class="footable-visible">';
+                                $tbldata.=''.$value['functional_name'];
+                               $tbldata.='</td>';
+                                $tbldata.='<td class="footable-visible">';
+                                 $tbldata.='<a class="tip" tip-title="';
+                                 if($value['status']==0){
+                                    $tbldata.='Pending';    
+                                   
+                                    $tbldata.='"' ; 
+                                }
+                                elseif($value['status']==1){
+                                    $tbldata.='published';
+                                 
+                                     $tbldata.='"' ;
+                                }
+                                else
+                                    {
+                                        
+                                         $tbldata.=''.$value['remarks'];
+                                    } $tbldata.=' style="cursor: default; text-decoration: none;">';
+                                     $st=$value['status']; 
+                                             if($st==0){
+                                               
+                                                $tbldata.='Pending' ; 
+                                                                     
+                                             }elseif($st==1){
+                                                 
+                                                 $tbldata.='Published' ; 
+                                                                     
+                                             }elseif($st==2){
+                                             
+                                                $tbldata.='Rejected' ;  
+                                               
+
+                                             }elseif($st==3){
+                                                
+                                                $tbldata.='Unpublished' ; 
+                                                                   
+                                             }
+                                   
+                                 $tbldata.='</a></td>' ;
+                             $tbldata.='<td class="footable-visible">';
+                                 if($value['publish_date']!="0000-00-00 00:00:00")
+                                    {
+                                   $tbl_data.=''.date("d/m/Y g:i A", strtotime($value['publish_date']));
+                               }
+                               else
+                                {
+                                    $tbldata.='Not Available';
+                                } 
+
+
+                              $tbldata.='</td>';
+                              $tbldata.='<td class="footable-visible">';                     
+                                 
+                           $tp=$this->Employer_model->get_total_applied($id); 
+                        $tbldata.='<a href="';
+                        $tbldata.=''.base_url()."applied-candidates/".$encoded_jid;
+                        $tbldata.='"><span style="color:#1ab394">';
+                         $tbldata.=''.$value['applied'];
+                        $tbldata.='</span></a>
+                              </td>';
+                            $tbldata.='
+<td class="footable-visible">';                     
+                               
+                                 
+                     $pack_id=$value["package_id"];
+                     $count_val=0;
+                     if($pack_id!=''){
+                    $select="u_id";
+                    $table_name="score";
+                    $where="package_id in($pack_id) and u_id not in (select uid from mm_user_applied_job where job_id='$id') and u_id in (select mm_uid from user where user_type_id='2')";
+                    $group="u_id";
+                    $having="count(u_id) = (SELECT count(ml_id) FROM `master_level` WHERE `pack_id`  in($pack_id) and `ml_status` = '1')";
+                    $order="score_id";
+                    $limit ="";                      
+                      $package_neurons=$this->Crud_modal->fetchdata_with_limit_and_having($select,$table_name,$where,$group,$having,$order,$limit);
+                    $count_val=sizeof($package_neurons);
+                     }
+                if($value['not_applied']>0){
+                
+                $tbldata.='<a href="';
+                $tbldata.=''.base_url().'open-user-job/'.$encoded_jid;
+                $tbldata.='">';
+                $tbldata.='<span style="color:#1ab394">';
+                $tbldata.=''.$value['not_applied'];
+                $tbldata.='</span></a> </td> '; }
+                else {
+                    
+                       $tbldata.='-';
+                     } 
+                                $tbldata.='<td class="footable-visible" width="10%">';
+                             $jid=$value['job_id'];
+                              $encoded_id=rtrim(strtr(base64_encode($jid), '+/', '-_'), '=');
+                                 $tbldata.='<a href="';
+                                 $tbldata.=''.base_url()."view-job/".$encoded_id;
+                                 $tbldata.='"';
+                                 $tbldata.=' class="tip" tip-title="View">
+                                    <button class="btn btn-circle" type="button"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                 </a>';
+                                 if($value['status']!=0){
+                                      $tbldata.='<button class="btn btn-circle tip" tip-title="Edit" type="button"  onClick="">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                     </button>';
+                                    
+                                 }
+                                 else
+                                    { 
+                                        if($tp['total_applied']!='0'){ 
+                                    
+                                    $tbldata.='<a href="';
+                                    $tbldata.=''.base_url()."edit-emp-job-after-applied/".$encoded_id;
+
+                                    $tbldata.='"';
+                                    $tbldat.='class="tip" tip-title="Edit">
+                                      <button class="btn btn-circle" type="button">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                      </button>
+                                    </a> ';
+                                }
+                                else
+                                    { 
+
+                                    $tbldata.='<a href="';
+                                    $tbldata.=''.base_url()."edit-emp-job/".$encoded_id;
+                                    $tbldata.='"';
+                                    $tbldata.='class="tip" tip-title="Edit">
+                                       <button class="btn btn-circle" type="button">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                      </button>
+                                    </a>';
+                                 }} 
+                                 $tbldata.='<button class="btn btn-circle share_job tip" type="button" tip-title="Unpublish"'; 
+
+                                 $tbldata.='data-val="';
+                                 $tbldata.=''.$value['job_id'];
+                                 $tbldata.='"';
+                                 $tbldata.='value="';
+                                 $tbldata.=''.$value['status'];
+                                 $tbldata.='"';
+                                 $tbldata.=' aria-hidden="true"><i class="fa fa-share" aria-hidden="true"></i></button>';
+                                 $tbldata.='<button class="btn btn-default btn-sm csv" data-val=" ';
+                                 $tbldata.=''.$encoded_jid;
+
+                                  $tbldata.='"';
+                                  $tbldata.=' data-date="';
+                                  $tbldata.=''.date("Y-m-d");
+                                  $tbldata.='"';
+                                  $tbldata.='data-name="';
+                                  $tbldata.=''.$value['job_title'];
+                                  $tbldata.='"';
+                                  $tbldata.='style="padding-right: 30px;margin-top: 5px;">';
+                                    $tbldata.='<span><img src="';
+                                    $tbldata.=''.base_url()."assets/images/button_loader.gif";
+                                    $tbldata.='"';
+                                    $tbldata.=' width="15" style="margin-right:5px;visibility: hidden;">Get CSV</span>
+                                  </button>  
+                              </td></tr>';
+
+
+                              
+                                
+                 }
+                // echo $tbldata;
+  
+  $ttbldata='$(".csv").click(function (event) {
+                            var ths =$(this);
+                            $(this).attr("disabled",true);
+                          $(this).find("img").css("visibility","visible");   
+                          $.post("<?php echo base_url()?>employer/Employer/export_data",{code:$(this).attr("data-val")}, function (result){
+                              $("#excel").html(result);
+                            var filename = ths.attr("data-date")+"_"+ths.attr("data-name")+".xls";  
+                            tableToExcel("testtable1",filename);    
+                            ths.find("img").css("visibility","hidden"); 
+                            ths.attr("disabled",false);        
+                          }).fail(function() {
+                            alert( "Something went wrong." );
+                            ths.attr("disabled",false); 
+                          }) 
+
+                        });';
+                
+                  echo json_encode(['message'=>$message, 'job1'=>$tbldata, 'ids'=>$pqr,'csvdata'=>$ttbldata]) ;
+       }
