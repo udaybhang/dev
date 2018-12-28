@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Display from both table</title>
 </head>
 <body>
+	<h2>some changes fot git</h2>
 <table>
 	<tr>
 		<th>job name</th>
