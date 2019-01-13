@@ -1,13 +1,11 @@
 <?php
-/**
- * 
- */
 class Presentation extends CI_Controller
 {
 	public function __construct()
 	{
 		parent:: __construct();
 		$this->load->model('B_presentation');
+		$this->load->model('crud/Crud_modal');
 	}
 	
 	public function index()
@@ -18,6 +16,14 @@ class Presentation extends CI_Controller
 	public function presentation1()
 	{
 	$this->load->view('presentation1');
+	}
+	public function time_validation()
+	{
+		$this->load->view('time-validation');
+	}
+	public function tmatch()
+	{
+		
 	}
 	public function presentation2()
 	{
@@ -82,6 +88,10 @@ class Presentation extends CI_Controller
 	public function custom_date_picker()
 	{
 		$this->load->view('custom-datepicker');
+	}
+	public function testjoin()
+	{
+		$this->Crud_modal->fetch_data_by_one_table_join($field,$table_name,$join1,$where);
 	}
 	
 }

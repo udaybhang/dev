@@ -1,7 +1,4 @@
 <?php  
-/**
- * 
- */
 class A_addremovefield extends CI_Controller
 {
 	
