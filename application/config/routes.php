@@ -111,3 +111,5 @@ $route['validation-on-keypress']='validation/Validation/key_event_form_submit';
 $route['edit-package']='validation/Validation/edit_package';
 $route['package-update']='validation/Validation/package_update';
 $route['join']='join/Joinexp';
+$route['rating']='rating/Rating';
+$route['helper']='Example_helper';
