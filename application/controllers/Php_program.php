@@ -1,7 +1,4 @@
 <?php
-/**
- * 
- */
 class Php_program extends CI_Controller
 {
 	
@@ -52,6 +49,7 @@ print_r($splittedstring);
 foreach ($splittedstring as $key => $value) {
 echo "splittedstring[".$key."] = ".$value."<br>";
 }
+}
 public function array_flips()
 {
 	$fruit=array('mango', 'apple', 'banana', 'pear');
@@ -59,6 +57,32 @@ $fruit= array_flip($fruit);
 print_r($fruit);// exchange all key with associative value
 }
 
+	public function min_max()
+	{
+		$array=array(1,2,3,4,5);
+ echo $this->getMax($array); //5
+echo $this->getMin($array); // 1
 	}
+public	function getMax($array)  
+{ 
+   $n = count($array);  
+   $max = $array[0]; 
+   for ($i = 1; $i < $n; $i++)  
+       if ($max < $array[$i]) 
+           $max = $array[$i]; 
+    return $max;        
+} 
+  
+// Returns maximum in array 
+public function getMin($array)  
+{ 
+   $n = count($array);  
+   $min = $array[0]; 
+   for ($i = 1; $i < $n; $i++)  
+       if ($min > $array[$i]) 
+           $min = $array[$i]; 
+    return $min;        
+} 
+	
 }
 ?>
