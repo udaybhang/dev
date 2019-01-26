@@ -1,0 +1,14 @@
+.admintitle{
+    background-color: purple;
+    color: white;
+    height: 130px;
+    line-height: 130px;
+}
+.dashboard{
+    background-color: red;
+    margin-left: 50px;
+    margin-right:  50px;
+    height: 140px;
+   
+  
+}
