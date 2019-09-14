@@ -79,8 +79,10 @@ class A_crudexport extends CI_controller
 	public function delete()
 	{
 		   $id=$this->uri->segment(2); 
+		  
 		  $result=$this->B_crudexport->updateststus($this->tbl, $id, array('status'=>0));
-
+		  // UPDATE `export` SET `status` = 0 WHERE `id` = '8'
+		
 		  if($result)
 		  {
 
@@ -102,12 +104,12 @@ class A_crudexport extends CI_controller
 	}
 	public function submitupdate()
 	{
-		 $id= $this->input->post('hidden_id');
-		 $field=array(
-'name'=>$this->input->post('name'),
-'email'=>$this->input->post('email'),
-'phone'=>$this->input->post('phone'),
-'message'=>$this->input->post('message')
+			$id= $this->input->post('hidden_id');
+			$field=array(
+			'name'=>$this->input->post('name'),
+			'email'=>$this->input->post('email'),
+			'phone'=>$this->input->post('phone'),
+			'message'=>$this->input->post('message')
 
 	);
 		 $result=$this->B_crudexport->update_row($this->tbl, $id, $field); 
