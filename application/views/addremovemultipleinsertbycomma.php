@@ -13,6 +13,7 @@
 	$(document).ready(function() {
     var max_fields      = 10; //maximum input boxes allowed
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    console.log("hi",wrapper);
     var add_button      = $(".add_field_button"); //Add button ID
    
     var x = 1; //initlal text box count
@@ -44,6 +45,7 @@
     <label class="col-sm-4 control-label">Type</label>
     <div class="col-sm-4">
         <div class="checkbox">
+            <!-- syntax=>form_checkbox('name', 'value'); -->
         <?php echo form_checkbox('type[]', 'type1'); ?>Type 1
         </div>
         <div class="checkbox">

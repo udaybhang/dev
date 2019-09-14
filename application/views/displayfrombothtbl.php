@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h2>some changes fot git hello hoow are youjgjgjgjjhjhjjggjgjjhjh</h2>
-<table>
+<table border="1">
 	<tr>
 		<th>job name</th>
 		<th>job description</th>
