@@ -16,7 +16,7 @@ class A_mm_master extends CI_Controller
 	{
         $orderby='name';
 		$data['detail']=$this->B_mm_master->fetch_alls($this->tbl, $orderby);
-		print_r($data['detail']);
+		// Array ( [0] => Array ( [id] => 2 [name] => gajendar [course] => html [state_id] => 1 [status] => 1 ) [1] => Array ( [id] => 3 [name] => rampravesh [course] => dotnet [state_id] => 2 [status] => 1 ) [2] => Array ( [id] => 4 [name] => sohan [course] => bigdata [state_id] => 2 [status] => 1 ) [3] => Array ( [id] => 1 [name] => udaybhan [course] => java [state_id] => 1 [status] => 1 ) )
 		$this->load->view('mm_master', $data);
 	}
 function edit_master()

@@ -68,7 +68,9 @@ public function fetch_date_range()
 		// echo $fdate; die;
 		$tdate=$_POST['to_date'];
 		$data=$this->B_fetchbyrangedate->data_select($fdate,$tdate);
-		// echo $this->db->last_query(); die();
+		// Array ( [0] => Array ( [id] => 5 [name] => Christopher M. Victory [date_to] => 2018-03-03 [status] => 1 ) [1] => Array ( [id] => 6 [name] => Jessica G. Fischer [date_to] => 2018-05-18 [status] => 1 ) [2] => Array ( [id] => 7 [name] => Roger R. White [date_to] => 2018-02-25 [status] => 1 ) )
+		// SELECT * FROM `datefromselect` WHERE `date_to` >= '2019-09-02' AND `date_to` <= '2019-09-12' AND `status` = '1'
+		 
 		if($data){
 		foreach($data as $row)
 		{

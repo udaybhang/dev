@@ -18,7 +18,7 @@ class B_mm_master extends CI_model
 											return $result;
 					   	}
 						
-				   		catch(Exception $e)
+		catch(Exception $e)
           {
               echo 'Caught exception: ',  $this->$e->getMessage(), "\n";
           }
