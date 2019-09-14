@@ -16,6 +16,7 @@ class A_imageupload extends CI_Controller
         if($this->input->post('userSubmit')){
             
             //Check whether user upload picture
+            //echo $_FILES['picture']['name']; // actual name bethought full path like abc.png
             if(!empty($_FILES['picture']['name'])){
                 $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -26,7 +27,10 @@ class A_imageupload extends CI_Controller
                 $this->upload->initialize($config);
                 
                 if($this->upload->do_upload('picture')){
+                     // $this->upload->do_upload('picture') // true/false
                     $uploadData = $this->upload->data();
+                   //$uploadData==> //Array ( [file_name] => swagger17.png [file_type] => image/png [file_path] => /var/www/html/dev/uploads/ [full_path] => /var/www/html/dev/uploads/swagger17.png [raw_name] => swagger17 [orig_name] => swagger.png [client_name] => swagger.png [file_ext] => .png [file_size] => 138.35 [is_image] => 1 [image_width] => 1366 [image_height] => 768 [image_type] => png [image_size_str] => width="1366" height="768" )
+                   
                     $picture = $uploadData['file_name'];
                 }else{
                     $picture = '';
