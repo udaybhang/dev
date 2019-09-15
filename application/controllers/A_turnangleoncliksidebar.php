@@ -14,7 +14,7 @@ class A_turnangleoncliksidebar extends CI_controller
 	{
 		
 		$data['brand']=$this->B_turnangleoncliksidebar->fetch_brand();
-		print_r($data['brand']);
+		// Array ( [0] => Array ( [brand_id] => 1 [brand_name] => Samsung ) [1] => Array ( [brand_id] => 2 [brand_name] => Sony ) [2] => Array ( [brand_id] => 3 [brand_name] => Motorola ) [3] => Array ( [brand_id] => 4 [brand_name] => Xiaomi ) )
 		$this->load->view('turnanglesidebar', $data);
 		
 	}

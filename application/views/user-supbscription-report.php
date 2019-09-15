@@ -109,7 +109,7 @@ echo "<option value='" . $mtype['plan_id'] . "' >" . $mtype['plan_name']."</opti
 						<td><?php echo $master_filetype_list['invoice_id'] ?></td>
 						<td><?php echo $master_filetype_list['amount'] ?>
 						</td>
-						<td><?php echo $master_filetype_list['txnid'] ?></td>
+						<td><?php echo $master_filetype_list['txn_type'] ?></td>
 					</tr>
 
 					<?php
