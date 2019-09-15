@@ -29,7 +29,7 @@ class AA_pagination extends CI_Controller
 		    	$page1=($perpage*5)-5;
  			}
 		$data['list']=$this->BB_pagination->fetch_alls($tblname, 'city_id asc', $page1);
-
+		// SELECT * FROM `city` ORDER BY `city_id` asc LIMIT 10, 5
 		 $this->load->view('ppagination', $data);
 		 }}
   ?>
