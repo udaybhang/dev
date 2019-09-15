@@ -143,8 +143,6 @@
             $data['all_cashback']=$this->Crud_modal->fetch_data_by_two_table_join($select,$table_name,$join1, $join2, $where);
             //SELECT `s`.*, `u`.`mm_user_full_name`, `u`.`mm_user_email`, `p`.`lvl_name` FROM `mm_cashback` as `s` LEFT JOIN `user` as `u` ON `s`.`user_id` = `u`.`mm_uid` LEFT JOIN `master_level` as `p` ON `s`.`against_id` = `p`.`ml_id` WHERE `get_date` >= '1970-01-01'
             $wh="get_date >='$now'";
-
-
             $data['cashback1']=$this->Crud_modal->all_data_select('sum( amount) as amount', 'mm_cashback', $wh, 'id asc');
 
             $this->load->view('user-cashback', $data);
@@ -153,9 +151,8 @@
 
             public function user_cashback_date_report()
             {
-
-
-            $where.='""';
+                $where='""';
+                $now='"';
             $submitsearch=$this->input->post('search');
             if($submitsearch == 'Search')
             {
@@ -207,13 +204,12 @@
             $join2[2]="left";
             // var_dump($where);
             $data['all_cashback']=$this->Crud_modal->fetch_data_by_two_table_join($select,$table_name,$join1, $join2, $where);
-
+//SELECT `s`.*, `u`.`mm_user_full_name`, `u`.`mm_user_email`, `p`.`lvl_name` FROM `mm_cashback` as `s` LEFT JOIN `user` as `u` ON `s`.`user_id` = `u`.`mm_uid` LEFT JOIN `master_level` as `p` ON `s`.`against_id` = `p`.`ml_id` WHERE `get_date` >= '2018-09-25' and `get_date` <= '2018-09-30'
             // $wh="date(get_date) >='$calendarfrom' and date(get_date) <=' $calendarto'";
             $wh="date(get_date) <'$calendarfrom'";
-            $data['cashback1']=$this->Crud_modal->all_data_select('sum(amount) as amount', 'mm_cashback', $wh, 'id asc');    
-            // echo $this->db->last_query();
 
-
+            $data['cashback1']=$this->Crud_modal->all_data_select('sum(amount) as amount', 'mm_cashback', $wh, 'id asc');   
+            // SELECT sum(amount) as amount FROM `mm_cashback` WHERE date(get_date) < '2018-09-25' ORDER BY `id` asc 
             $this->load->view('cashback/user-cashback', $data);
 
             }

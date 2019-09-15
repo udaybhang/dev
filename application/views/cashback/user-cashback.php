@@ -44,7 +44,10 @@
                   </div>
                   <input type="submit" name="search" value="Search"  class="btn btn-info">
                     </form>
-                    <div class="danger" style="text-align: left; color:red;"><?php echo $message; ?></div>
+                    <div class="danger" style="text-align: left; color:red;"><?php if(isset($message))
+                    {
+                      echo $message;
+                    } ?></div>
                     </div> 
                     <div class="col-md-6">
                       <form action="" name="form2" autocomplete="off" method="post" class="form-inline" style="margin-left: 10px;">
