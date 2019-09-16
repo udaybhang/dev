@@ -16,9 +16,10 @@ class Comment_system extends CI_Controller
 	}
 	public function add_comment()
 	{
+
 		$error = '';
-$comment_name = '';
-$comment_content = '';
+   $comment_name = '';
+   $comment_content = '';
 	if(empty($_POST["comment_name"]))
 {
 	echo 1;
@@ -61,10 +62,7 @@ echo json_encode($data);
 	}
 	public function fetch_comment()
 	{
-		
-
-
-$result = $this->Crud_modal->fetch_alls('tbl_comment', 'comment_id asc');
+	$result = $this->Crud_modal->fetch_alls('tbl_comment', 'comment_id asc');
 $array = (array) $result;
 $output = '';
 foreach($array as $row)

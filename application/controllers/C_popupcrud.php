@@ -39,7 +39,7 @@ class C_popupcrud extends CI_controller
 		$result=$this->Modal_crudpopup->update($id, $data);
 		if($result){
 		echo 'record updated sucessfully';  
-
+		
 	}
 		// echo "record updated sucessfully"; // dikhega nahi
 		//redirect(base_url('Book/profile')); // ye line bhi nahi chalegi
