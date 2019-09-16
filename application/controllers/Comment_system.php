@@ -64,6 +64,7 @@ echo json_encode($data);
 	{
 	$result = $this->Crud_modal->fetch_alls('tbl_comment', 'comment_id asc');
 $array = (array) $result;
+
 $output = '';
 foreach($array as $row)
 {

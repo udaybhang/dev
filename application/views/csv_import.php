@@ -48,14 +48,14 @@ $(document).ready(function(){
  $('#import_csv').on('submit', function(event){
   event.preventDefault();
   $.ajax({
-   url:"<?php echo base_url(); ?>index.php/csv_import/import",
+   url:"<?php echo base_url(); ?>Csv_import/import",
    method:"POST",
-   data:new FormData(this),
+   data:new FormData(this), // Create an arbitrary FormData instance
    contentType:false,
    cache:false,
    processData:false,
    beforeSend:function(){
-    $('#import_csv_btn').html('Importing...');
+    // $('#import_csv_btn').html('Importing...');
    },
    success:function(data)
    {
