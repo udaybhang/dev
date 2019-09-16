@@ -17,6 +17,8 @@ class Csv_import extends CI_Controller {
  function load_data()
  {
   $result = $this->csv_import_model->select();
+    // SELECT * FROM `tbl_user` ORDER BY `id`
+  
   // echo $result->num_rows(); die; // it return number of row
   $output = '
    <h3 align="center">Imported User Details from CSV File</h3>
@@ -63,13 +65,13 @@ class Csv_import extends CI_Controller {
  {
  	 // echo $_FILES["csv_file"]["tmp_name"]; die;
   $file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);
-  // print_r($file_data); die;
+   print_r($file_data); 
   foreach($file_data as $row)
   {
    $data[] = array(
           'first_name' => $row["first_name"],     //second first_name is column name  value of excel sheet 
           'last_name'  => $row["last_name"],
-          'phone'   => $row["Phone"],
+          'phone'   => $row["phone"],
           'email'   => $row["email"]
    );
   }

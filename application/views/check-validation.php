@@ -5,13 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-
-	
-
-  <style>
+<style>
 .invoice {
 position: relative;
 background: #fff;
@@ -78,92 +72,90 @@ margin-top: 35px; width:
 					<div class="col-md-12">
 						<section class="content">
 							<!-- SELECT2 EXAMPLE -->
-							<div class="box box-col">
-								<div class="box-header with-border">
-									<h3 class="box-title">Master Assignment</h3>
-								</div>
-								<!-- /.box-header -->
-								<div class="box-body">
-									<form name="create_assign" autocomplete="off" method="post" action="<?php echo base_url() ?>create-assign" enctype="multipart/form-data">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="exampleInputEmail1">Assignment Name</label>
-													<input type="text" class="form-control" maxlength="40" id="assignment_name" name="assignment_name" placeholder="Assignment Name" required="">
-													<span class="message_error alphabets_alw" style="display:none; color:red;">Only character  allowed.</span>
-                                                    <span style="color:red;" class="msgphp" ><?php 
+				<div class="box box-col">
+				<div class="box-header with-border">
+				<h3 class="box-title">Master Assignment</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+				<form name="create_assign" autocomplete="off" method="post" action="<?php echo base_url() ?>create-assign" enctype="multipart/form-data">
+				<div class="row">
+				<div class="col-md-6">
+				<div class="form-group">
+				<label for="exampleInputEmail1">Assignment Name</label>
+				<input type="text" class="form-control" maxlength="40" id="assignment_name" name="assignment_name" placeholder="Assignment Name" required="">
+				<span class="message_error alphabets_alw" style="display:none; color:red;">Only character  allowed.</span>
+				<span style="color:red;" class="msgphp" ><?php 
 
-                                                    echo form_error('assignment_name'); ?></span> 
-												</div>
+				echo form_error('assignment_name'); ?></span> 
+				</div>
+				<!-- /.form-group -->
+				</div>
+				<!-- /.col -->
+					<div class="col-md-6"></div>
+					<div class="row">
+					<div class="col-md-4">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Start Date</label>
+					<input type="text" class="form-control datepicker" id="start_date" name="start_date" placeholder="Start Date" required="">	
+					<span class="message_error date_valid_start" style="display:none; color:red;">start date must lesser.</span>
+					</div>
 											<!-- /.form-group -->
-											</div>
-											<!-- /.col -->
-											<div class="col-md-6"></div>
+						</div>
+						<div class="col-md-4">
+						<div class="form-group">
+						<label for="exampleInputEmail1">End Date</label>
+						<input type="text" class="form-control" id="end_date" name="end_date" placeholder="End Date" required="">
+						<span class="message_error date_valid" style="display:none; color:red;">End date must bigger.</span>
+						</div>
+						<!-- /.form-group -->
+						</div>
 
-																				</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label for="exampleInputEmail1">Start Date</label>
-													<input type="text" class="form-control datepicker" id="start_date" name="start_date" placeholder="Start Date" required="">	
-													<span class="message_error date_valid_start" style="display:none; color:red;">start date must lesser.</span>
-												</div>
-											<!-- /.form-group -->
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label for="exampleInputEmail1">End Date</label>
-													<input type="text" class="form-control" id="end_date" name="end_date" placeholder="End Date" required="">
-										        <span class="message_error date_valid" style="display:none; color:red;">End date must bigger.</span>
-												</div>
-											<!-- /.form-group -->
-											</div>
-											
-										</div>
+						</div>
 											
                                             
                                             <!-- my Code-->
-                                            <div class="row">
-                                            <div class="col-md-4">
-                                            	<div class="form-group">
-													<label for="exampleInputEmail1">Wallet Point</label>
-													<input type="text" class="form-control" id="wallet_point" name="wallet_point" placeholder="Wallet Point" required="">
-													<span class="message_error number_alw" style="display:none; color:red;">Only number allowed.</span>
-													 <span style="color:red;"><?php echo form_error('wallet_point'); ?></span> 
-													
-												</div>
-                                            </div>
-                                            <div class="col-md-4">
-                                            	<div class="form-group">
-													<label for="exampleInputEmail1">Lumens</label>
-													<input type="text" class="form-control" id="lumens" name="lumens" placeholder="Lumens" required="">
-													<span class="message_error lumens" style="display:none; color:red;">Only number allowed.</span>
-												  <span style="color:red;"><?php echo form_error('lumens'); ?></span>	
-												</div>
-                                            </div>
-                                            <div class="col-md-4">
-                                            	<div class="form-group">
-													<label for="exampleInputEmail1">Time Limits</label>
-													<input type="text" class="form-control" id="time_limit" name="time_limit" placeholder="Time Limits (In minutes 00.00)"   required="">
-												<span class="message_error time_limit" style="display:none; color:red;">Invalid time format. The valid format is hh:mm.</span>
-												 <span style="color:red;"><?php echo form_error('time_limit'); ?></span> 
-												</div>
-                                            </div>
-                                        </div>
+					<div class="row">
+					<div class="col-md-4">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Wallet Point</label>
+					<input type="text" class="form-control" id="wallet_point" name="wallet_point" placeholder="Wallet Point" required="">
+					<span class="message_error number_alw" style="display:none; color:red;">Only number allowed.</span>
+					<span style="color:red;"><?php echo form_error('wallet_point'); ?></span> 
+
+					</div>
+					</div>
+					<div class="col-md-4">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Lumens</label>
+					<input type="text" class="form-control" id="lumens" name="lumens" placeholder="Lumens" required="">
+					<span class="message_error lumens" style="display:none; color:red;">Only number allowed.</span>
+					<span style="color:red;"><?php echo form_error('lumens'); ?></span>	
+					</div>
+					</div>
+					<div class="col-md-4">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Time Limits</label>
+					<input type="text" class="form-control" id="time_limit" name="time_limit" placeholder="Time Limits (In minutes 00.00)"   required="">
+					<span class="message_error time_limit" style="display:none; color:red;">Invalid time format. The valid format is hh:mm.</span>
+					<span style="color:red;"><?php echo form_error('time_limit'); ?></span> 
+					</div>
+					</div>
+					</div>
                                             <!-- my Code end -->
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="exampleInputEmail1">Assignment Image</label>
-													<input type="file" name="image" id="img"  required="" />
-												<span class="img" style="display:block;"><?php echo $this->session->userdata('assign_message');  ?></span>	
-												</div>
+					<div class="col-md-6">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Assignment Image</label>
+					<input type="file" name="image" id="img"  required="" />
+					<span class="img" style="display:block;"><?php echo $this->session->userdata('assign_message');  ?></span>	
+					</div>
 											<!-- /.form-group -->
-											</div>
-										
-										<!-- /.col -->
-										</div>
-										<button data-toggle="modal" data-target="#myModal" type="button " class="btn btn-primary btn-md " style="float: right;background-color:#112B4E; border-color: #112B4E">Submit</button>
-										<!-- /.row -->
+						</div>
+
+						<!-- /.col -->
+						</div>
+						<button data-toggle="modal" data-target="#myModal" type="button " class="btn btn-primary btn-md " style="float: right;background-color:#112B4E; border-color: #112B4E">Submit</button>
+						<!-- /.row -->
 									</form>
 								</div>
 								<!-- /.box-body -->

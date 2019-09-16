@@ -34,7 +34,8 @@ $(document).ready(function(){
  
  $('#comment_form').on('submit', function(event){
   event.preventDefault();
-  var form_data = $(this).serialize();
+  var form_data = $(this).serialize(); //comment_name=khokho&comment_content=good+luck&comment_id=0
+  console.log(form_data);
   $.ajax({
    url:"<?php echo base_url().'Comment_system/add_comment'  ?>",
    method:"POST",

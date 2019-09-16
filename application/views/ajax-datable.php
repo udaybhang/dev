@@ -52,9 +52,7 @@
         	 <tr>
                 <th>Name</th>
                 <th>Position</th>
-               
-               
-            </tr>
+               </tr>
         </tfoot>
     </table>
 </body>
@@ -81,11 +79,11 @@
 	        	dataType:"json",
 	        	data:{searchid:searchid},
                 beforeSend: function(){
-                                                   $('#loadingmessage').show();
-                                                 },
-                                                 complete: function(){
-                                                  $('#loadingmessage').hide();
-                                                 },
+                                   $('#loadingmessage').show();
+                                 },
+                                 complete: function(){
+                                  $('#loadingmessage').hide();
+                                 },
 	        	success:function(res)
 	        	{
 	        		 $('#example').dataTable().fnDestroy();

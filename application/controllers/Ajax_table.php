@@ -30,8 +30,7 @@ class Ajax_table extends CI_Controller
 		foreach($res as $row)
 		{
    	$rows[]=$row;
-            
-		}
+   }
 		echo json_encode($rows);
 	}
 }

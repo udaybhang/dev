@@ -13,6 +13,7 @@ class Csrf_token extends CI_Controller
 	public function index()
 	{
 		$data['token']=$this->auth->token();
+		
 		$this->load->view('csrf-token-form', $data);
 	}
 	public function search()

@@ -21,7 +21,7 @@ $(document).ready(function(){
 		data: { "bookId": bookId, "bookName": book_name, "bookPrice" : price},
 		success: function(response) 
 		{ 
-window.location.href = "<?php echo base_url('Book/profile'); ?>";		
+           window.location.href = "<?php echo base_url('Book/profile'); ?>";		
 		}
  
 });
