@@ -1,4 +1,7 @@
-<?php include('header.php'); ?>
+
+<?php include('header.php'); 
+//views/Users/header.php
+?> 
 
 <div class="container" style="margin-top:20px;">
 <h1><?= $title;  ?></h1>

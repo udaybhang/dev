@@ -59,7 +59,7 @@ echo "hi";
          // 'smtp_port' => 80,
          'smtp_port' => 465, //25
          'smtp_user' => 'uexefm@gmail.com', 
-         'smtp_pass' => 'udaybhan.g', 
+         'smtp_pass' => 'girnar.g', 
          'mailtype'  => 'html',
          'charset'  => 'iso-8859-1',
          'wordwrap'  => TRUE
@@ -73,7 +73,7 @@ echo "hi";
       $this->email->subject($subject);
          $this->email->message($message);
          $this->email->attach($file_data['full_path']);
-         if($this->email->send())
+        if($this->email->send())
          {
           if(delete_files($file_data['file_path']))
           {

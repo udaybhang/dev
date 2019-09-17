@@ -4,9 +4,9 @@ class Posts extends CI_Controller {
     
     function __construct() {
         parent::__construct();
-        //load pagination library
+        //load pagination library // this is predefined library
         $this->load->library('pagination');
-        //load post model
+        //load post model // this is post model avl in model folder
         $this->load->model('post');
         //per page limit
         $this->perPage = 4;
@@ -19,7 +19,7 @@ class Posts extends CI_Controller {
         $conditions['returnType'] = 'count';
         $totalRec = $this->post->getRows($conditions);
         
-        //pagination config
+        //pagination config predefined $config array with predefined key
         $config['base_url']    = base_url().'posts/index';
         $config['uri_segment'] = 3;
         $config['total_rows']  = $totalRec;

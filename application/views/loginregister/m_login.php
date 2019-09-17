@@ -32,7 +32,8 @@ if($this->session->flashdata('error'))
 	<h1>login</h1>
 	<?php
 	echo form_open('M_login/login_validation');
-	 echo validation_errors(); // for this use you can show message for validationn autometically whose applied on Main controller
+	// <form action="http://localhost/dev/index.php/M_login/login_validation" method="post" accept-charset="utf-8">
+ echo validation_errors(); // for this use you can show message for validationn autometically whose applied on Main controller
 	// echo "<p>Email";
 	  // echo form_input('email' );//, $this->input->post('email')
 
