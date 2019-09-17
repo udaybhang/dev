@@ -4,7 +4,7 @@ if ( ! function_exists('get_assignment'))
 {
     function get_list($id)
     {
-       $ci =& get_instance();
+    $ci =& get_instance();
 		$ci->load->database();
 		$ci->db->initialize();
        $ci->db->select('*');

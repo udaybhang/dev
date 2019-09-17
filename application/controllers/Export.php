@@ -21,7 +21,7 @@ class Export extends CI_Controller {
         $data['feedbackInfo'] = $this->export->employeeList();
            
         // load view file for output
-        $this->load->view('users/feedbacklist', $data);
+        $this->load->view('Users/feedbacklist', $data);
     }
      // create xlsx
     public function createXLS() {
