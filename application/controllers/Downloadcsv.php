@@ -6,9 +6,6 @@ class Downloadcsv extends CI_Controller {
 	public function __construct(){
 
 		parent::__construct();
-
-		
-
 		// Load Model
 		$this->load->model('Main_model');
 	}
@@ -28,7 +25,6 @@ class Downloadcsv extends CI_Controller {
 		
 		// file name
 		$filename = 'users_'.date('Ymd').'.csv';
-		
 		header("Content-Description: File Transfer");
 		header("Content-Disposition: attachment; filename=$filename");
 		header("Content-Type: application/csv; "); 

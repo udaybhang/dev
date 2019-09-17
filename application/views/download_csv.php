@@ -14,20 +14,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a href='<?= base_url() ?>Downloadcsv/exportCSV'>Export</a><br><br>
 
 	<!-- User Records -->
-	<table border='1' style='border-collapse: collapse;'>
+	<table border='1' style='border-collapse: collapse; width: 100%'>
 		<thead>
 			<tr>
-				
 				<th>Name</th>
-				
 				<th>Email</th>
 				<th>Photo</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php
-
-			foreach($usersData as $key=>$val){
+        foreach($usersData as $key=>$val){
 				echo "<tr>";
 				
 				echo "<td>".$val['name']."</td>";

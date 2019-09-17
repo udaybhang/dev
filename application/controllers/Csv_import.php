@@ -65,7 +65,7 @@ class Csv_import extends CI_Controller {
  {
  	 // echo $_FILES["csv_file"]["tmp_name"]; die;
   $file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);
-   print_r($file_data); 
+//Array ( [0] => Array ( [first_name] => parwesh [last_name] => yadav [phone] => 7838576354 [email] => parwesh@gmail.com ) )
   foreach($file_data as $row)
   {
    $data[] = array(

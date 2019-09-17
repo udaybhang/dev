@@ -25,15 +25,13 @@
 							<th>Email</th>
 							<th>plan_name</th>
 							<th>Invoive Id</th>
-						</tr>
-												</thead>
-												<tbody>
-													<?php
-													
-														
-														$i=1;  
-							           foreach($all_info as $row)
-							           {
+							</tr>
+							</thead>
+							<tbody>
+							<?php
+								$i=1;  
+							foreach($all_info as $row)
+							{
 							?>
 							<tr>
 							<td><?php echo $i; ?></td>
