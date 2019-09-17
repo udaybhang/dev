@@ -13,22 +13,19 @@ class Presentation extends CI_Controller
 		$data['user']=$this->B_presentation->fetch_mazercities();
 	$this->load->view('presentation3', $data);
 	}
-	public function presentation1()
-	{
-	$this->load->view('presentation1');
-	}
-	public function time_validation()
-	{
-		$this->load->view('time-validation');
-	}
-	public function tmatch()
-	{
-		
-	}
-	public function presentation2()
-	{
-		$this->load->view('presentation2');
-	}
+	// public function presentation1()
+	// {
+	// $this->load->view('presentation1');
+	// }
+	// public function time_validation()
+	// {
+	// 	$this->load->view('time-validation');
+	// }
+	
+	// public function presentation2()
+	// {
+	// 	$this->load->view('presentation2');
+	// }
 	public function presentation3()
 	{
 
@@ -60,20 +57,13 @@ class Presentation extends CI_Controller
  }
  
 	
-	public function presentation4()
-	{
-		$this->load->view('presentation4');
-	}
 	
-	public function presentation5()
-	{
-		$this->load->view('presentation5');
-	}
-	public function presentation6()
-	{
-				$this->load->view('presentation6');
-
-	}
+	
+	// public function presentation5()
+	// {
+	// 	$this->load->view('presentation5');
+	// }
+	
 	function presentation7()
 	{
 				$this->load->view('presentation7');
@@ -89,10 +79,7 @@ class Presentation extends CI_Controller
 	{
 		$this->load->view('custom-datepicker');
 	}
-	public function testjoin()
-	{
-		$this->Crud_modal->fetch_data_by_one_table_join($field,$table_name,$join1,$where);
-	}
+
 	
 }
 

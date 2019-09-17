@@ -46,10 +46,14 @@
 				data:$(this).serialize(),
 				success:function(data)
 				{
+					console.log(data);
+					
 					if(data!=''){
+					
                   $('.error_message').html(data);
                   }
                   else{
+
                   	window.location='<?php echo base_url().'home'   ?>';
                   }
 				}

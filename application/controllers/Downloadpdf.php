@@ -30,7 +30,7 @@ class Downloadpdf extends CI_Controller
 	public function download_invoice()
 	{
 		$id=$this->uri->segment(2);
-		$arr=explode('-', $id);
+		$arr=explode('-', $id);////it returns array i.e Array ( [0] => 2 [1] => 1)
 		// print_r($arr);
 		$uid=$arr[0];
 		$pid=$arr[1];
@@ -41,15 +41,15 @@ class Downloadpdf extends CI_Controller
         			$join1[1]='s.user_id = u.id';
         			$join1[2]="left";
         			$join2[0]='mm_plans as p';
-        						  $join2[1]='s.plan_id = p.id';
-        						  $join2[2]="left";
-        						
-
-		$user_name['allinfo']=$this->Crud_modal->fetch_data_by_two_table_join($field, $table_name,$join1,$join2,$where);
+    				$join2[1]='s.plan_id = p.id';
+    				$join2[2]="left";
+             $user_name['allinfo']=$this->Crud_modal->fetch_data_by_two_table_join($field, $table_name,$join1,$join2,$where);
 		 $this->load->view('invoicefile', $user_name);
         
         // Get output html
-        $html = $this->output->get_output();
+        $html = $this->output->get_output(); //Permits you to manually retrieve any output that has been sent for storage in the output class.Note that data will only be retrievable from this function if it has been previously sent to the output class by one of the CodeIgniter functions like $this->load->view().
+
+
         
         // Load pdf library
         $this->load->library('pdf');
@@ -58,7 +58,7 @@ class Downloadpdf extends CI_Controller
         $this->dompdf->loadHtml($html);
         
         // (Optional) Setup the paper size and orientation
-        $this->dompdf->setPaper('A4', 'landscape');
+        $this->dompdf->setPaper('A4', 'landscape'); //if you escape this line pdf page willl be srink from both left and write.
         
         // Render the HTML as PDF
         $this->dompdf->render();

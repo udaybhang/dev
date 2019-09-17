@@ -33,6 +33,7 @@ class Session_expire_loader extends CI_Controller
 		{
 			// $where="email='$email' and password='$pass'";
            $data=$this->Crud_modal->fetch_single_data('email,password','tbl_login',$where);
+           
            // $vemail=
            // echo $vemail;
            $this->session->set_userdata('email',$data['email']);

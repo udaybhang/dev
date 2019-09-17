@@ -18,10 +18,9 @@ class Export extends CI_Controller {
     public function index() {
         
         $data['title'] = 'Display Feedback Data';
-        $data['feedbackInfo'] = $this->export->employeeList();
-           
+        $data['feedbackInfo'] = $this->export->employeeList(); //object of array output
         // load view file for output
-        $this->load->view('users/feedbacklist', $data);
+        $this->load->view('Users/feedbacklist', $data);
     }
      // create xlsx
     public function createXLS() {

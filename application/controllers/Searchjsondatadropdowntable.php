@@ -8,7 +8,7 @@ class Searchjsondatadropdowntable extends CI_Controller
 	function __construct()
 	{
 		parent:: __construct();
-		$this->load->modal('crud/Crud_model');
+		$this->load->model('crud/Crud_modal');
 	}
 	public function index()
 	{
@@ -17,7 +17,7 @@ class Searchjsondatadropdowntable extends CI_Controller
 	public function table_json_onchange()
 	{
 		$vs=$this->input->post('vs');
-		$data=$this->Crud_model->fetch_all();
+		$data=$this->Crud_modal->fetch_all();
 		print_r($data);
 		
 	}
